@@ -1,5 +1,6 @@
 package cn.xianxian;
 
+import cn.xianxian.utils.PrintUtils;
 import org.junit.Test;
 
 /**
@@ -10,11 +11,14 @@ public class InitTest {
     @Test
     public void initDataByFile() throws Exception {
         int [][] array = new Init().initDataByFile();
-        for (int[] ints : array) {
-            for (int i : ints) {
-                System.out.print(i + " ");
-            }
-            System.out.println();
-        }
+        PrintUtils.printTwoArray(array);
+    }
+
+    @Test
+    public void autoArrayTest() throws Exception  {
+        Init init = new Init();
+        int [][] array = init.initDataByFile();
+        int [][] newArray = init.autoArray(array);
+        PrintUtils.printTwoArray(newArray);
     }
 }

@@ -10,7 +10,11 @@ import java.util.List;
  */
 public class Init {
 
-    public int[][] initDataByFile() throws IOException {
+    public int[][] init() throws IOException {
+        return autoArray(initDataByFile());
+    }
+
+    private int[][] initDataByFile() throws IOException {
         List<String[]> temp = new ArrayList<String[]>();
         File f = new File("init.data");
         BufferedReader bf = new BufferedReader(new FileReader(f));
@@ -25,6 +29,16 @@ public class Init {
                 line[j] = Integer.parseInt(temp.get(i)[j]);
             }
             result[i] = line;
+        }
+        return result;
+    }
+
+    private int[][] autoArray(int[][] originArray) {
+        int[][] result = new int[originArray.length + 2][originArray[0].length + 2];
+        for (int i = 0; i < originArray.length; i++) {
+            for (int j = 0; j < originArray[i].length; j++) {
+                result[i + 1][j + 1 ] = originArray[i][j];
+            }
         }
         return result;
     }

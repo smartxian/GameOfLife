@@ -14,7 +14,7 @@ public class Init {
         return autoArray(initDataByFile());
     }
 
-    private int[][] initDataByFile() throws IOException {
+    public int[][] initDataByFile() throws IOException {
         List<String[]> temp = new ArrayList<String[]>();
         File f = new File("init.data");
         BufferedReader bf = new BufferedReader(new FileReader(f));
@@ -33,7 +33,7 @@ public class Init {
         return result;
     }
 
-    private int[][] autoArray(int[][] originArray) {
+    public int[][] autoArray(int[][] originArray) {
         int[][] result = new int[originArray.length + 2][originArray[0].length + 2];
         for (int i = 0; i < originArray.length; i++) {
             for (int j = 0; j < originArray[i].length; j++) {

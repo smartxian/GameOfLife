@@ -33,4 +33,15 @@ public class Calculate {
         return result;
     }
 
+    public boolean isAllDeath(int [][] array) {
+        int sum = 0;
+        for (int[] ints : array) {
+            for (int i : ints) {
+                sum += i;
+            }
+        }
+
+        return sum == 0;
+    }
+
 }
